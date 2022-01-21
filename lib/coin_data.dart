@@ -44,7 +44,7 @@ class CoinData {
       if (response.statusCode == 200) {
         cryptoValues[crypto] = jsonDecode(response.body)['rate'];
       } else {
-        print(response.statusCode);
+        cryptoValues[crypto] = 0;
       }
     }
     return cryptoValues;
