@@ -12,7 +12,7 @@ class PriceScreen extends StatefulWidget {
 
 class _PriceScreenState extends State<PriceScreen> {
   String quoteCurrency = 'USD';
-  Map<String, double> cryptoValues = {};
+  Map<String, double>? cryptoValues;
 
   Future<void> getCryptoValue() async {
     cryptoValues = await CoinData().getCoinData(quoteCurrency: quoteCurrency);
@@ -73,7 +73,7 @@ class _PriceScreenState extends State<PriceScreen> {
             padding:
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
             child: Text(
-              '1 $crypto = ${cryptoValues[crypto]?.toInt() ?? '?'} $quoteCurrency',
+              '1 $crypto = ${cryptoValues?[crypto]?.toInt() ?? '?'} $quoteCurrency',
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 20.0,
